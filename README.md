@@ -28,6 +28,11 @@
 - 로그인, 회원가입, 회원탈퇴 기능 구현
 - 게시판 글 작성, 수정, 삭제 기능 구현
 - 제목, 작성자, 제목 & 작성자를 이용한 게시글 검색 구현
+![1](https://github.com/madorosjang/JSP_website_practice/assets/122807795/8f3b7055-73cd-4c56-ba30-32166db98c03)
+![2](https://github.com/madorosjang/JSP_website_practice/assets/122807795/3f0820df-8c58-40ec-b95d-ea767a672b1e)
+![3](https://github.com/madorosjang/JSP_website_practice/assets/122807795/728e2e08-41b9-4fbd-9c63-955ab0855613)
+![4](https://github.com/madorosjang/JSP_website_practice/assets/122807795/20448439-f117-4494-9abd-4f54ec73656e)
+![5](https://github.com/madorosjang/JSP_website_practice/assets/122807795/344566a0-a239-44e8-b731-a7344b5161f7)
 
 ### 코드 출처
 - 유튜브 '동빈나'
