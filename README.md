@@ -26,7 +26,45 @@
 
 ### 프로젝트 성과
 - 로그인, 회원가입, 회원탈퇴 기능 구현
+  ```
+  public int login(String userID, String userPassword) {//하나의 계정에 대한 로그인 시도를 하는 함수
+		String SQL = "SELECT userPassword FROM USER WHERE userID = ?";
+		try {
+			pstmt = conn.prepareStatement(SQL); //sql쿼리문 대기
+			pstmt.setString(1, userID); //?에 매개변수로 받아온 userID 대입
+			rs = pstmt.executeQuery(); //쿼리 실행 결과 rs에 저장
+			if(rs.next()) {//아이디가 있는 경우
+				if(rs.getString(1).equals(userPassword)) 
+					return 1; //로그인 성공
+				else 
+					return 0; //비밀번호 틀림
+			}
+			return -1; //아이디가 없다
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return -2; //데이터 베이스 오류
+	}
+  ```
 - 게시판 글 작성, 수정, 삭제 기능 구현
+```
+public int write(String bbsTitle, String userID, String bbsContent) { //글쓰기 메소드
+		String SQL = "insert into bbs values (?,?,?,?,?,?)";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQL문장 실행준비단계
+			pstmt.setInt(1, getNext());
+			pstmt.setString(2, bbsTitle);
+			pstmt.setString(3, userID);
+			pstmt.setString(4, getDate());
+			pstmt.setString(5, bbsContent);
+			pstmt.setInt(6, 1); //글의 유효번호
+			return pstmt.executeUpdate(); //성공 시 0이상인 결과를 반환
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return -1; //실패시 오류 반환
+	}
+```
 - 제목, 작성자, 제목 & 작성자를 이용한 게시글 검색 구현
 ![1](https://github.com/madorosjang/JSP_website_practice/assets/122807795/8f3b7055-73cd-4c56-ba30-32166db98c03)
 ![2](https://github.com/madorosjang/JSP_website_practice/assets/122807795/3f0820df-8c58-40ec-b95d-ea767a672b1e)
